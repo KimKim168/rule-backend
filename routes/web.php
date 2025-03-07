@@ -164,7 +164,7 @@ Route::group([
 ], function () {
     Route::get('/', function () {
         // return redirect('/isbn_requests');
-        return redirect('admin/books');
+        return redirect('admin/settings/pages');
     });
 });
 
