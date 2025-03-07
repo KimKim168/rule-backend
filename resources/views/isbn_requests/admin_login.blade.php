@@ -375,7 +375,7 @@
             <h2 class="text-4xl lg:text-5xl text-[#5D54A4] max-w-[60ch] text-center font-bold">
                 Login
             </h2>
-            <img class="w-[40ch] px-8" src="{{ asset('assets/images/website_infos/rule.png') }}" alt="">
+            <img class="w-[40ch] px-8" src="{{ asset('assets/images/website_infos/'. $websiteInfo->image) }}" alt="">
             <p class="text-4xl font-bold">Royal University of Law and Economics<span class="text-[#5D54A4] rounded-full">.</span></p>
         </div>
         <div class="flex flex-col items-center flex-1 gap-4 shrink-0 container_login_form">
