@@ -97,7 +97,7 @@
                         </div>
                     </th>
 
-                    <th scope="col" class="px-4 py-3">Position</th>
+                    {{-- <th scope="col" class="px-4 py-3">Position</th> --}}
                     <th scope="col" class="px-4 py-3">Order_index</th>
                     <th scope="col" class="px-4 py-3">Created_at</th>
                     <th scope="col" class="py-3 text-center">Action</th>
@@ -118,7 +118,7 @@
                             </a>
                         </th>
                         <x-table-data value="{{ $item->name }}" />
-                        <x-table-data value="{{ $item->position }}" />
+                        {{-- <x-table-data value="{{ $item->position }}" /> --}}
                         <x-table-data>
                             <span
                                 class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300 whitespace-nowrap">

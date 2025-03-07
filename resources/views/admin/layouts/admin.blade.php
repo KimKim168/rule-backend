@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Supportal Alphalib</title>
+    <title>Royal University of Law and Economics</title>
 
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 
@@ -32,9 +32,9 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="{{ $websiteInfo->name }}">
-    <link rel="apple-touch-icon" href="{{ asset('assets/images/website_infos/alphalib.png') }}">
-    <link rel="apple-touch-startup-image" href="{{ asset('assets/images/website_infos/alphalib.png') }}">
-    <link rel="icon" href="{{ asset('assets/images/website_infos/alphalib.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('assets/images/website_infos/rule.png') }}">
+    <link rel="apple-touch-startup-image" href="{{ asset('assets/images/website_infos/rule.png') }}">
+    <link rel="icon" href="{{ asset('assets/images/website_infos/rule.png') }}">
 
     <style>
         .select2-selection {
@@ -152,15 +152,14 @@
                         <span class="sr-only">Toggle sidebar</span>
                     </button>
                     <a href="{{ url('isbn_requests') }}" class="flex items-center justify-center mr-4">
-                        {{-- @if ($websiteInfo->image)
-                            <img src="{{ asset('assets/images/website_infos/logo192.png') }}" class="h-8 mr-3"
+                        @if ($websiteInfo->image)
+                            <img src="{{ asset('assets/images/website_infos/logo192.png') }}" class="h-10  mr-3"
                                 alt="Flowbite Logo" />
-                        @endif --}}
-
+                        @endif
                         <span
-                            class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-                            {{-- {{ $websiteInfo->name }} --}}
-                            Support Portal
+                            class="self-center text-base block md:hidden font-semibold whitespace-nowrap dark:text-white">
+                            {{ $websiteInfo->name }}
+
                         </span>
                     </a>
 
@@ -366,9 +365,9 @@
                 class="flex items-center justify-center p-2.5 border-b dark:border-b-slate-600">
                 @if ($websiteInfo->image)
                     <img src="{{ asset('assets/images/website_infos/logo192.png') }}"
-                        class="object-cover h-8 mr-3 rounded-full aspect-square" alt="Flowbite Logo" />
+                        class="object-cover h-10 mr-3 rounded-full aspect-square" alt="Flowbite Logo" />
                 @endif
-                <span class="self-center text-2xl font-semibold line-clamp-1 dark:text-white">
+                <span class="self-center text-base font-semibold line-clamp-1 dark:text-white">
                     {{ $websiteInfo->name }}
                 </span>
             </a>
@@ -424,7 +423,7 @@
                         </x-sidebar-item>
                     </li> --}}
 
-                    @if (request()->user()->hasRole(['super-admin', 'admin']))
+                    {{-- @if (request()->user()->hasRole(['super-admin', 'admin']))
                         <li x-data="{
                             open: {{ request()->is('admin/categories*') || request()->is('admin/brands*') || request()->is('admin/books*') || request()->is('admin/sub_categories*') ? 'true' : 'false' }},
                             init() {
@@ -454,12 +453,7 @@
                                         All Services
                                     </a>
                                 </li>
-                                {{-- <li>
-                                    <a href="{{ url('admin/brands') }}"
-                                        class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('admin/brands*') ? 'bg-slate-200 dark:bg-slate-500' : '' }}">
-                                        Brands
-                                    </a>
-                                </li> --}}
+
                                 <li>
                                     <a href="{{ url('admin/videos') }}"
                                         class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('admin/brands*') ? 'bg-slate-200 dark:bg-slate-500' : '' }}">
@@ -483,7 +477,7 @@
                             </ul>
                         </li>
 
-                        {{-- <li x-data="{
+                        <li x-data="{
                             open: {{ request()->is('admin/bulletins*') || request()->is('admin/bulletins_categories*') ? 'true' : 'false' }},
                             init() {
                                 if ({{ request()->is('admin/bulletins*') || request()->is('admin/bulletins_categories*') ? 'true' : 'false' }}) {
@@ -521,8 +515,8 @@
 
 
                             </ul>
-                        </li> --}}
-                    @endif
+                        </li>
+                    @endif --}}
 
                     @can('view user')
                         <li x-data="{
@@ -554,20 +548,20 @@
                                         Users
                                     </a>
                                 </li>
-                                {{-- @can('view role')
+                                @can('view role')
                                     <li>
                                         <a href="{{ url('admin/roles') }}"
                                             class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('admin/roles*') ? 'bg-slate-200 dark:bg-slate-500' : '' }}">
                                             Roles
                                         </a>
                                     </li>
-                                @endcan --}}
-                                {{-- <li>
+                                @endcan
+                                 <li>
                                     <a href="{{ url('admin/permissions') }}"
                                         class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('admin/permissions*') ? 'bg-slate-200 dark:bg-slate-500' : '' }}">
                                         Permissions
                                     </a>
-                                </li> --}}
+                                </li>
 
                             </ul>
                         </li>

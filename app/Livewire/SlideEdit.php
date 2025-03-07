@@ -18,7 +18,7 @@ class SlideEdit extends Component
 
     public $item;
     public $name = null;
-    public $position = null;
+    // public $position = null;
     public $order_index = null;
     public $link = null;
 
@@ -27,7 +27,7 @@ class SlideEdit extends Component
         $this->item = $item; // Initialize the $item variable with the provided item model instance
         $this->name = $item->name;
         $this->order_index = $item->order_index;
-        $this->position = $item->position;
+        // $this->position = $item->position;
         $this->link = $item->link;
     }
 
@@ -61,7 +61,7 @@ class SlideEdit extends Component
         $validated = $this->validate([
             'name' => 'required|string|max:255',
             'order_index' => 'nullable|int',
-            'position' => 'nullable',
+            // 'position' => 'nullable',
             'link' => 'nullable|max:255',
         ]);
 

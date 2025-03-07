@@ -69,6 +69,7 @@ Route::get('slides', [SlideController::class, 'index']);
 Route::get('publishers', [PublisherController::class, 'publishers']);
 Route::get('links', [LinkController::class, 'index']);
 Route::get('pages', [PageController::class, 'index']);
+Route::get('pages/{id}', [PageController::class, 'show']);
 Route::get('payments', [PaymentController::class, 'index']);
 Route::get('customers', [CustomerController::class, 'index']);
 Route::get('authors', [AuthorController::class, 'index']);

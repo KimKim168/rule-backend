@@ -12,7 +12,7 @@ class AdminPermissionController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('permission:view permissions', ['only' => ['index']]);
+        $this->middleware('permission:view permission', ['only' => ['index']]);
     }
     public function index()
     {

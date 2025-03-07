@@ -113,7 +113,7 @@
                 <x-input-error :messages="$errors->get('link')" class="mt-2" />
             </div>
             <div class="">
-                <x-input-label for="position" :value="__('Position')" />
+                <x-input-label for="position" :value="__('Position')" /><span class="text-red-500">*</span>
                 <x-select-option wire:model='position' class="block w-full mt-1" id="position"
                     name='position'>
                     <option value="">Select Position</option>
@@ -127,7 +127,7 @@
                 <x-input-error :messages="$errors->get('position')" class="mt-2" />
             </div>
             <div class="">
-                <x-input-label for="type" :value="__('Type')" />
+                <x-input-label for="type" :value="__('Type')" /><span class="text-red-500">*</span>
                 <x-select-option wire:model='type' class="block w-full mt-1" id="type"
                     name='type'>
                     <option value="">Select Type</option>

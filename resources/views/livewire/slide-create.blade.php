@@ -80,7 +80,7 @@
                     required autofocus placeholder="Order Index" />
                 <x-input-error :messages="$errors->get('order_index')" class="mt-2" />
             </div>
-            <div class="">
+            {{-- <div class="">
                 <x-input-label for="position" :value="__('messages.position')" />
                 <x-select-option wire:model='position' class="block w-full mt-1" id="position"
                     name='pistion'>
@@ -88,7 +88,7 @@
                     <option value="bottom">{{ __('messages.bottom') }}</option>
                 </x-select-option>
                 <x-input-error :messages="$errors->get('position')" class="mt-2" />
-            </div>
+            </div> --}}
             <div>
                 <x-input-label for="link" :value="__('Link')" />
                 <x-text-input id="link" class="block w-full mt-1" type="text" name="link" wire:model='link'
@@ -110,7 +110,7 @@
                 @endif
                 <div class="flex flex-col flex-1">
                     <label class='mb-4 text-sm font-medium text-gray-600 dark:text-white'>
-                        Upload Image (Max: 2MB) (Recommend : 21x9 or 2100x900 pixels) <span class="text-red-500">*</span>
+                        Upload Image (Max: 2MB) (Recommend : 32x9 or 3200x900 pixels) <span class="text-red-500">*</span>
                     </label>
                     <div class="relative flex items-center justify-center w-full -mt-3 overflow-hidden">
                         <label for="dropzone-file"

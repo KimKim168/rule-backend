@@ -16,7 +16,7 @@ class SlideCreate extends Component
     // public $pdf;
 
     public $name = null;
-    public $position = 'top';
+    // public $position = 'top';
     public $order_index = null;
     public $link = null;
 
@@ -50,7 +50,7 @@ class SlideCreate extends Component
         $validated = $this->validate([
             'name' => 'required|string|max:255',
             'order_index' => 'nullable|int',
-            'position' => 'nullable|max:255',
+            // 'position' => 'nullable|max:255',
             'link' => 'nullable|max:255',
             'image' => 'required|image|max:2048',
         ]);

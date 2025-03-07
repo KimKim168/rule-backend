@@ -35,4 +35,10 @@ class PageController extends Controller
 
         return response()->json($pages);
     }
+    public function show(string $id)
+    {
+
+        $pages =  Page::findOrFail($id);
+        return response()->json($pages);
+    }
 }

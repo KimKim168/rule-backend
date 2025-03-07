@@ -47,9 +47,6 @@
                     @endforeach
 
                     {{ session()->forget('errors') }}
-
-
-
                 </div>
                 <button type="button" @click="show = false"
                     class="ms-auto -mx-1.5 -my-1.5 bg-red-50 text-red-500 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-200 inline-flex items-center justify-center h-8 w-8 dark:bg-gray-800 dark:text-red-400 dark:hover:bg-gray-700"
@@ -87,6 +84,14 @@
                 <x-text-input id="order_index" class="block w-full mt-1" type="number" name="order_index"
                     wire:model='order_index' required autofocus placeholder="Order Index" />
                 <x-input-error :messages="$errors->get('order_index')" class="mt-2" />
+            </div>
+            <div class="md:col-span-2">
+                <label for="short_decription" class = 'mb-4 text-sm font-medium text-gray-600 dark:text-white'>
+                    {{ __('Short Description') }}
+                </label>
+                <textarea wire:model='short_decription' class="w-full p-2 mt-1 border rounded bg-gray-50"
+                    placeholder="Enter Short Description">{{ $short_decription }}</textarea>
+                <x-input-error :messages="$errors->get('short_description')" class="mt-2" />
             </div>
             <div class="col-span-1">
                 <label for="link" class = 'mb-4 text-sm font-medium text-gray-600 dark:text-white'>
@@ -211,11 +216,11 @@
             {{-- End Image Upload --}}
         </div>
 
-        {{-- <div class="mb-5" wire:ignore>
-            <x-input-label for="description" :value="__('Description')" />
-            <textarea id="description" name="description"></textarea>
-        </div>
         <div class="mb-5" wire:ignore>
+            <x-input-label for="description" :value="__('Description')" />
+            <textarea id="description" name="description">{{ $item->description }}</textarea>
+        </div>
+        {{-- <div class="mb-5" wire:ignore>
             <x-input-label for="description_kh" :value="__('Description KH')" />
             <textarea id="description_kh" name="description_kh"></textarea>
         </div> --}}
@@ -242,27 +247,27 @@
 
 @script
     <script>
-        // let options = {
-        //     filebrowserImageBrowseUrl: "{{ asset('laravel-filemanager?type=Images') }}",
-        //     filebrowserImageUploadUrl: "{{ asset('laravel-filemanager/upload?type=Images&_token=') }}",
-        //     filebrowserBrowseUrl: "{{ asset('laravel-filemanager?type=Files') }}",
-        //     filebrowserUploadUrl: "{{ asset('laravel-filemanager/upload?type=Files&_token=') }}"
-        // };
+        let options = {
+            filebrowserImageBrowseUrl: "{{ asset('laravel-filemanager?type=Images') }}",
+            filebrowserImageUploadUrl: "{{ asset('laravel-filemanager/upload?type=Images&_token=') }}",
+            filebrowserBrowseUrl: "{{ asset('laravel-filemanager?type=Files') }}",
+            filebrowserUploadUrl: "{{ asset('laravel-filemanager/upload?type=Files&_token=') }}"
+        };
 
-        // $(document).ready(function() {
-        //     const editor = CKEDITOR.replace('description', options);
-        //     editor.on('change', function(event) {
-        //         console.log(event.editor.getData())
-        //         @this.set('description', event.editor.getData(), false);
-        //     })
-        // })
-        // $(document).ready(function() {
-        //     const editor = CKEDITOR.replace('description_kh', options);
-        //     editor.on('change', function(event) {
-        //         console.log(event.editor.getData())
-        //         @this.set('description_kh', event.editor.getData(), false);
-        //     })
-        // })
+        $(document).ready(function() {
+            const editor = CKEDITOR.replace('description', options);
+            editor.on('change', function(event) {
+                console.log(event.editor.getData())
+                @this.set('description', event.editor.getData(), false);
+            })
+        })
+        $(document).ready(function() {
+            const editor = CKEDITOR.replace('description_kh', options);
+            editor.on('change', function(event) {
+                console.log(event.editor.getData())
+                @this.set('description_kh', event.editor.getData(), false);
+            })
+        })
 
 
 
