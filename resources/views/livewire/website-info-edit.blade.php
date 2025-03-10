@@ -81,6 +81,37 @@
                 <x-input-error :messages="$errors->get('name_kh')" class="mt-2" />
             </div>
         </div>
+        <div class="grid gap-5 mb-5 lg:grid-cols-2">
+            <!-- Start Name -->
+            <div>
+                <x-input-label for="address" :value="__('Address')" /><span class="text-red-500">*</span>
+                <x-text-input id="address" class="block w-full mt-1" type="text" name="address" wire:model='address'
+                    required autofocus placeholder="address" />
+                <x-input-error :messages="$errors->get('address')" class="mt-2" />
+            </div>
+            <div>
+                <x-input-label for="phone" :value="__('Phone')" /><span class="text-red-500">*</span>
+                <x-text-input id="phone" class="block w-full mt-1" type="text" name="phone" wire:model='phone'
+                    required autofocus placeholder="Name KH" />
+                <x-input-error :messages="$errors->get('phone')" class="mt-2" />
+            </div>
+        </div>
+        <div class="grid gap-5 mb-5 lg:grid-cols-2">
+            <!-- Start Name -->
+            <div>
+                <x-input-label for="hours" :value="__('Working hours')" /><span class="text-red-500">*</span>
+                <x-text-input id="hours" class="block w-full mt-1" type="text" name="hours" wire:model='hours'
+                    required autofocus placeholder="Working hours" />
+                <x-input-error :messages="$errors->get('Working hours')" class="mt-2" />
+            </div>
+            <div>
+                <x-input-label for="closed" :value="__('Close')" /><span class="text-red-500">*</span>
+                <x-text-input id="closed" class="block w-full mt-1" type="text" name="closed" wire:model='closed'
+                    required autofocus placeholder="Name KH" />
+                <x-input-error :messages="$errors->get('closed')" class="mt-2" />
+            </div>
+        </div>
+
         {{-- <div class="grid grid-cols-2 gap-5 mb-5 lg:grid-cols-3">
             <!-- Start Name -->
             <div class="">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\FooterController;
 use App\Http\Controllers\Admin\LinkController;
@@ -110,6 +111,7 @@ Route::group([
 
     Route::resource('settings/menus', MenuController::class);
     Route::resource('settings/slides', SlideController::class);
+    Route::resource('settings/banners', BannerController::class);
     Route::resource('settings/footer', FooterController::class);
     Route::get('settings/contact', [MenuController::class, 'contact']);
     Route::get('settings/about', [MenuController::class, 'about']);

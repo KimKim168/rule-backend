@@ -1,7 +1,9 @@
 <?php
 
 // use App\Http\Controllers\Admin\VideoController;
+use App\Http\Controllers\Api\BannerController;
 use App\Http\Controllers\Api\PageController;
+use App\Http\Controllers\Api\WebsiteInfoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -66,8 +68,10 @@ Route::get('/sent_to_telegram', function (Request $request) {
 
 
 Route::get('slides', [SlideController::class, 'index']);
+Route::get('banners', [BannerController::class, 'index']);
 Route::get('publishers', [PublisherController::class, 'publishers']);
 Route::get('links', [LinkController::class, 'index']);
+Route::get('website_infos', [WebsiteInfoController::class, 'index']);
 Route::get('pages', [PageController::class, 'index']);
 Route::get('pages/{id}', [PageController::class, 'show']);
 Route::get('payments', [PaymentController::class, 'index']);

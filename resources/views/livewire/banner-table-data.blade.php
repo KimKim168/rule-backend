@@ -43,106 +43,14 @@
                         class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                         placeholder="Search...">
                 </div>
-                <div>
-                    <button id="filterDropdownButton" data-dropdown-toggle="filterDropdown"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg md:w-[200px] focus:outline-none hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
-                        type="button">
-                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-4 h-4 mr-2 text-gray-400"
-                            viewbox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd"
-                                d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z"
-                                clip-rule="evenodd" />
-                        </svg>
-                        <p class="w-full text-left uppercase line-clamp-1">
-                            {{ $filter ? $filter : 'Positions' }}
-                        </p>
-                        <svg class="-mr-1 ml-1.5 w-5 h-5" fill="currentColor" viewbox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path clip-rule="evenodd" fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
-                        </svg>
-                    </button>
-                    <div id="filterDropdown" class="z-10 hidden w-48 p-3 bg-white rounded-lg shadow dark:bg-gray-700">
-                        <h6 class="mb-3 text-sm font-bold text-gray-900 dark:text-white">Filter by Role</h6>
-                        <ul class="space-y-2 text-sm" aria-labelledby="filterDropdownButton">
-                            <li class="flex items-center">
-                                <button wire:click="setFilter('')">
-                                    <label for="apple"
-                                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100  {{ $filter == 0 ? 'underline' : '' }}">
-                                        All Position
-                                    </label>
-                                </button>
-                            </li>
-                            <li class="flex items-center">
-                                <button wire:click.prevent='setFilter("menus")'>
-                                    <p
-                                        class="ml-2 text-sm font-medium text-gray-900 uppercase dark:text-gray-100 text-left hover:underline {{ $filter == 'menus' ? 'underline' : '' }}">
-                                        Menus
-                                    </p>
-                                </button>
-                            </li>
-                            <li class="flex items-center">
-                                <button wire:click.prevent='setFilter("news")'>
-                                    <p
-                                        class="ml-2 text-sm font-medium text-gray-900 uppercase dark:text-gray-100 text-left hover:underline {{ $filter == 'news' ? 'underline' : '' }}">
-                                        News
-                                    </p>
-                                </button>
-                            </li>
-                            <li class="flex items-center">
-                                <button wire:click.prevent='setFilter("hero_sections")'>
-                                    <p
-                                        class="ml-2 text-sm font-medium text-gray-900 uppercase dark:text-gray-100 text-left hover:underline {{ $filter == 'hero_sections' ? 'underline' : '' }}">
-                                        Hero Sections
-                                    </p>
-                                </button>
-                            </li>
-                            <li class="flex items-center">
-                                <button wire:click.prevent='setFilter("databases")'>
-                                    <p
-                                        class="ml-2 text-sm font-medium text-gray-900 uppercase dark:text-gray-100 text-left hover:underline {{ $filter == 'databases' ? 'underline' : '' }}">
-                                        Databases
-                                    </p>
-                                </button>
-                            </li>
-                            <li class="flex items-center">
-                                <button wire:click.prevent='setFilter("resources")'>
-                                    <p
-                                        class="ml-2 text-sm font-medium text-gray-900 uppercase dark:text-gray-100 text-left hover:underline {{ $filter == 'resources' ? 'underline' : '' }}">
-                                        Resources
-                                    </p>
-                                </button>
-                            </li>
-                            <li class="flex items-center">
-                                <button wire:click.prevent='setFilter("collections")'>
-                                    <p
-                                        class="ml-2 text-sm font-medium text-gray-900 uppercase dark:text-gray-100 text-left hover:underline {{ $filter == 'collections' ? 'underline' : '' }}">
-                                        Collections
-                                    </p>
-                                </button>
-                            </li>
-                            {{-- @foreach ($categories as $category)
-                                <li class="flex items-center">
-                                    <button wire:click.prevent='setFilter("{{ $category->name }}")'>
-                                        <p
-                                            class="ml-2 text-sm font-medium text-gray-900 uppercase dark:text-gray-100 text-left hover:underline {{ $category->name == $filter ? 'underline' : '' }}">
-                                            {{ $category->name }}
-                                        </p>
 
-                                    </button>
-                                </li>
-                            @endforeach --}}
-
-                        </ul>
-                    </div>
-                </div>
             </form>
         </div>
         <div
             class="flex flex-col items-stretch justify-end flex-shrink-0 w-full space-y-2 md:w-auto md:flex-row md:space-y-0 md:items-center md:space-x-3">
 
             @can('create setting')
-            <x-primary-button href="{{ url('admin/settings/pages/create') }}">
+            <x-primary-button href="{{ url('admin/settings/banners/create') }}">
                 <svg class="h-3.5 w-3.5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
                     aria-hidden="true">
                     <path clip-rule="evenodd" fill-rule="evenodd"
@@ -152,7 +60,7 @@
             </x-primary-button>
             @endcan
 
-            {{-- <div class="flex items-center hidden w-full space-x-3 md:w-auto">
+            {{-- <div class="flex items-center w-full space-x-3 md:w-auto hidden">
                 <button id="filterDropdownButton"
                     class="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg md:w-auto focus:outline-none hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                     type="button">
@@ -189,14 +97,9 @@
                         </div>
                     </th>
 
-                    {{-- <th scope="col" class="px-4 py-3">Name_kh</th> --}}
-                    {{-- <th scope="col" class="px-4 py-3">Short Description</th> --}}
-                    <th scope="col" class="px-4 py-3">Link</th>
-                    <th scope="col" class="px-4 py-3">Positions</th>
-                    <th scope="col" class="px-4 py-3">Types</th>
-                    {{-- <th scope="col" class="px-4 py-3 line-clamp-1">Description</th> --}}
-                    <th scope="col" class="px-4 py-3">Order_Index</th>
-                    {{-- <th scope="col" class="px-4 py-3">Created_at</th> --}}
+                    {{-- <th scope="col" class="px-4 py-3">Position</th> --}}
+                    <th scope="col" class="px-4 py-3">Order_index</th>
+                    <th scope="col" class="px-4 py-3">Created_at</th>
                     <th scope="col" class="py-3 text-center">Action</th>
                 </tr>
             </thead>
@@ -209,27 +112,20 @@
                         </td>
                         <th scope="row"
                             class="flex items-center px-4 py-2 font-medium text-gray-900 dark:text-white">
-                            <a href="{{ asset('assets/images/pages/' . $item->image) }}" class="glightbox">
-                                <img src="{{ asset('assets/images/pages/' . $item->image) }}"
-                                    alt="iMac Front Image" class="object-contain h-10 mr-3 aspect-[1/1]">
+                            <a href="{{ asset('assets/images/banners/' . $item->image) }}" class="glightbox">
+                                <img src="{{ asset('assets/images/banners/thumb/' . $item->image) }}"
+                                    alt="iMac Front Image" class="object-contain h-10 mr-3 aspect-[16/9]">
                             </a>
                         </th>
                         <x-table-data value="{{ $item->name }}" />
-                        {{-- <x-table-data value="{{ $item->name_kh }}" /> --}}
-                        {{-- <x-table-data value="{{ $item->short_decription }}" /> --}}
-                        {{-- <x-table-data value="{{ $item->description }}" /> --}}
+                        {{-- <x-table-data value="{{ $item->position }}" /> --}}
                         <x-table-data>
                             <span
                                 class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300 whitespace-nowrap">
-                                {{ $item->link }}
+                                {{ $item->order_index }}
                             </span>
                         </x-table-data>
-                        <x-table-data value="{{ $item->position }}" />
-                        <x-table-data value="{{ $item->type }}" />
-                        <x-table-data value="{{ $item->order_index }}" />
-                        {{-- <x-table-data value="{{ $item->created_at?->format('d-M-Y') }}" /> --}}
-
-
+                        <x-table-data value="{{ $item->created_at?->format('d-M-Y') }}" />
 
 
                         <td class="px-6 py-4">
@@ -283,7 +179,7 @@
                                 @can('update setting')
                                 <div class="pb-1" x-data="{ tooltip: false }">
                                     <!-- Modal toggle -->
-                                    <a href="{{ url('admin/settings/pages/'.$item->id.'/edit') }}" @mouseenter="tooltip = true" @mouseleave="tooltip = false">
+                                    <a href="{{ url('admin/settings/banners/'.$item->id.'/edit') }}" @mouseenter="tooltip = true" @mouseleave="tooltip = false">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"

@@ -16,6 +16,13 @@ class PageTableData extends Component
     public $search = '';
 
     #[Url(history: true)]
+    public $filter = '';
+
+    #[Url(history: true)]
+    public $position = '';
+
+
+    #[Url(history: true)]
     public $perPage = 10;
 
     #[Url(history: true)]
@@ -28,6 +35,8 @@ class PageTableData extends Component
         $this->filter = $value;
         $this->resetPage();
     }
+
+
 
     public function setSortBy($newSortBy) {
         if($this->sortBy == $newSortBy){
@@ -49,18 +58,46 @@ class PageTableData extends Component
         $this->resetPage();
     }
 
-    public function render(){
 
-        $items = Page::where(function($query){
-                                $query->where('name', 'LIKE', "%$this->search%")
-                                    ->orWhere('name_kh', 'LIKE', "%$this->search%");
-                            })
+    public function render() {
 
-                            ->orderBy($this->sortBy, $this->sortDir)
-                            ->paginate($this->perPage);
+        $query = Page::query();
+
+        if($this->filter != ''){
+            $query->where('position', $this->filter);
+        }
+
+        if($this->search != ''){
+            $query->where('name', 'LIKE', "%$this->search%")
+            ->orWhere('name_kh', 'LIKE', "%$this->search%");
+        }
+
+        $items = $query->orderBy($this->sortBy, $this->sortDir)
+                ->paginate($this->perPage);
+
+
 
         return view('livewire.page-table-data', [
             'items' => $items,
         ]);
     }
+
+
+    // public function render(){
+
+    //     $items = Page::where(function($query){
+    //                             $query->where('name', 'LIKE', "%$this->search%")
+    //                                 ->orWhere('name_kh', 'LIKE', "%$this->search%");
+    //                         })
+    //                         ->when($this->filter != '', function($query) {
+    //                             $query->where('name', $this->filter);
+    //                         })
+    //                         ->where('position', '=', '')
+    //                         ->orderBy($this->sortBy, $this->sortDir)
+    //                         ->paginate($this->perPage);
+
+    //     return view('livewire.page-table-data', [
+    //         'items' => $items,
+    //     ]);
+    // }
 }

@@ -19,6 +19,10 @@ class WebsiteInfoEdit extends Component
     public $item; // Variable to hold the item record for editing
     public $name;
     public $name_kh;
+    public $address;
+    public $phone;
+    public $hours;
+    public $closed;
     public $primary;
     public $primary_hover;
     public $banner_color;
@@ -36,6 +40,10 @@ class WebsiteInfoEdit extends Component
         $this->item = $item; // Initialize the $item variable with the provided item model instance
         $this->name = $item->name;
         $this->name_kh = $item->name_kh;
+        $this->address = $item->address;
+        $this->phone = $item->phone;
+        $this->hours = $item->hours;
+        $this->closed = $item->closed;
         $this->primary = $item->primary;
         $this->primary_hover = $item->primary_hover;
         $this->banner_color = $item->banner_color;
@@ -68,6 +76,10 @@ class WebsiteInfoEdit extends Component
         $validated = $this->validate([
             'name' => 'required|string|max:255',
             'name_kh' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
+            'phone' => 'required|string|max:255',
+            'hours' => 'required|string|max:255',
+            'closed' => 'required|string|max:255',
             'primary' => 'required|max:255',
             'primary_hover' => 'required|max:255',
             'banner_color' => 'required|max:255',
